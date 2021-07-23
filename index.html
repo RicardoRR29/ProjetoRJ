@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link lang="scss" rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div v-for="(pessoa, pessoaIndice) in pessoas">
+            <div  class="userCamp" v-bind:style="{ background: pessoa.cor}">
+                <div class="nome-salario">
+                    <h1 class="nome">{{pessoa.nome}}</h1>
+                    <div v-bind:style="{ background: pessoa.cor }" class="salario">
+                        <div class="money">R$</div>
+                        <input class="input-salario" v-model="pessoas[pessoaIndice].rendaMensal" >
+
+                    </div>
+                </div>
+                <table  class="tablePessoa">
+                    <tr class="table-row">
+                        <td class="black-space"></td>
+                        <td  class="cabec-label" v-for="mes in meses">{{mes}}</td>
+                    </tr>
+                    <tr v-for="(conta, contaIndice) in pessoa.contas">
+                        <td class="cabec-label">{{conta.nomeBanco}}</td>
+                        <td v-for="(gastoMes, gastoAnualIndice) in conta.gastoAnual" v-bind:style="{ background: pessoa.cor }">
+                            
+                            <input  class="data-input" type="text"  v-model="pessoas[pessoaIndice].contas[contaIndice].gastoAnual[gastoAnualIndice]" />
+                        </td>
+                    </tr>
+                    <tr class="tr-total">
+                        <td class="cabec-label">Total</td>
+                        <td v-for="mes in 12" >
+                            <div class="valor-total">
+                                <div class="money">R$</div>
+                                <div>{{calculoTotal(pessoaIndice, mes-1)}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div>
+            <div class="userCamp" style="background: lightblue;">
+                <h1>Despesa Mensal Conjunta</h1>
+                <table class="tablePessoa">
+                    <tr class="table-row">
+                        <td class="black-space"></td>
+                        <td  class="cabec-label" v-for="mes in meses">{{mes}}</td>
+                    </tr>
+                    <tr class="table-row" v-for="(pessoa, pessoaIdx) in pessoas">
+                        <td class="cabec-label">{{pessoas[pessoaIdx].nome}}</td>
+                        <td v-for="mes in 12" >
+                            <div class="valor-total">
+                                <div class="money">R$</div>
+                                <div >{{calculoTotal(pessoaIdx, mes-1)}}</div>
+                            </div>
+                        </td>
+                    </tr>    
+                </table>
+            </div>
+            
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://rawgit.com/vuejs-tips/v-money/master/dist/v-money.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

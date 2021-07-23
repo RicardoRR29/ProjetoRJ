@@ -1,0 +1,133 @@
+body {
+    width: 100%;
+    margin: 0;
+}
+
+#app {
+    margin: 0;
+    width: 100%;
+}
+
+.userCamp, .statsCamp {
+    overflow-x: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    color: #404040;
+    padding: 20px;
+    font: 400 15px/18px sans-serif;
+    box-shadow: 5px 5px 20px #00000033;
+    margin: 40px;
+}
+
+.nome-salario {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.nome-salario .nome {
+    margin-right: 10px;
+}
+
+.nome-salario .salario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+    border: none;
+    filter: brightness(0.9);
+    outline: none;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font: 15px/18px sans-serif;
+    color: rgb(54, 54, 54);
+    margin-left: 20px;
+
+}
+.nome-salario .salario .input-salario {
+    width: 30px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    height: 10px;
+}
+
+.tablePessoa {
+    border-radius: 10px;
+    text-align: right;
+    width: 100%;
+}
+
+.tablePessoa tr {
+    width: 100%;
+}
+
+
+.tablePessoa .table-row:nth-child(1) {
+    background-color: transparent;
+}
+
+.tablePessoa td {
+    box-shadow: 0px 0px 20px #00000033;
+    padding: 5px 9px;
+    border-radius: 2px;
+}
+.tablePessoa tr:first-child td:first-child{
+    box-shadow: none;
+}
+
+.blank-space {
+    visibility: hidden;
+    background-color: none;
+}
+.tablePessoa .cabec-label {
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    min-width: 60px;
+}
+
+.userCamp {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    color: #404040;
+    padding: 20px;
+    font: 400 1rem/1.2rem sans-serif;
+    box-shadow: 0px 0px 20px #00000033;
+    margin: 40px;
+}
+
+.tablePessoa .data-input {
+    border: none;
+    text-align: right;
+    background-color: transparent;
+    width: 100%;
+}
+.tablePessoa .data-input:focus {
+    filter: grayscale(50%);
+    outline: none;
+}
+.tablePessoa .data-input::placeholder {
+    color: #404040;
+}
+.money {
+    margin-right: 3px;
+    font-size: 10px;
+}
+
+.valor-total {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 60%;
+    }
+}
